@@ -1,0 +1,8 @@
+prefix=/home/turtlebot/jeff_michelle_ws/install
+
+Name: hw9
+Description: Description of hw9
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/turtlebot/jeff_michelle_ws/install/lib 
+Requires: 

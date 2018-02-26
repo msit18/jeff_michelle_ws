@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/turtlebot/jeff_michelle_ws/src/cmvision/src/conversions.c
+string.h
+-
+conversions.h
+/home/turtlebot/jeff_michelle_ws/src/cmvision/src/conversions.h
+
+/home/turtlebot/jeff_michelle_ws/src/cmvision/src/conversions.h
+stdlib.h
+-
+stdio.h
+-
+
