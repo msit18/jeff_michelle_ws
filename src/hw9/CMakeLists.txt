@@ -132,6 +132,7 @@ include_directories(
 
 ## Declare a C++ executable
 add_executable(get_paper src/get_paper.cpp)
+add_executable(get_paper_test src/get_paper_test.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
@@ -139,6 +140,9 @@ add_executable(get_paper src/get_paper.cpp)
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(get_paper
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(get_paper_test
   ${catkin_LIBRARIES}
 )
 

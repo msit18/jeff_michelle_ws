@@ -1,0 +1,271 @@
+/************************************************************
+ * Name: get_paper.cpp
+ * Author: Jeffrey Wang, Michelle Sit
+ * Date: 02/24/2018
+ *
+ * Description:
+ ***********************************************************/
+
+#include <geometry_msgs/Twist.h>
+#include <ros/ros.h>
+#include <cmvision/Blobs.h>
+#include <stdio.h>
+#include <pcl_ros/point_cloud.h>
+#include <pcl/point_types.h>
+#include <time.h>
+#include <math.h>
+
+typedef pcl::PointCloud<pcl::PointXYZ> PointCloud;
+
+/* SPECIFIED CONSTANTS */
+#define FREQ 10.0
+
+#define WALL_FOLLOW_DISTANCE 0.35
+#define WALL_FOLLOW_SPEED 0.5
+#define WALL_ANGLE 0.0
+#define WALL_MAX_THRESH 5.0
+
+#define OBJ_REACHED_DIST 0.6
+
+/* TUNABLE CONSTANTS */
+#define ANGLE_CONTROL_P 1.0
+#define ANGLE_CONTROL_I 0.0
+#define ANGLE_CONTROL_D 0.5
+#define DIST_CONTROL_P 0.5
+#define DIST_CONTROL_I 0.0
+#define DIST_CONTROL_D 0.25
+
+#define WALL_FOLLOW_DIST_GAIN 1.5
+
+/* IMMUTABLE CONSTANTS */
+#define PI 3.14159265
+#define PIXEL_PER_DEGREE 10.6666666667
+#define CENTER_OF_FRAME 320
+
+/* GLOBAL FLAGS */
+bool noMoreWall = 0;
+// bool hitObstacle = 0;
+bool runOnce = 0; // use for initializing states
+
+/* GLOBAL VALUES */
+int state = 0; // state of the robot
+double zAngle = 0.0; // angle robot is at relative to wall/blob
+double wallDist = 0.0; // distance from wall while wallfollowing
+double objDist = 0.0; // distance the robot is away from an object it's trying to approach
+
+using namespace std;
+
+/************************************************************
+ * PID CLASS
+ ***********************************************************/
+class Controller{
+	double Kp;
+	double Ki;
+	double Kd;
+	double prev_error;
+	double integral;
+	double dt;
+
+public:
+	// Constructor
+	Controller(double Pvalue, double Ivalue, double Dvalue, double loopTime){
+		Kp = Pvalue;
+		Ki = Ivalue;
+		Kd = Dvalue;
+	        dt = loopTime;
+
+		prev_error = 0;
+		integral = 0;
+	}
+
+    	// Controller
+	double run(double target, double current){
+		double error = target - current;
+
+        	integral = integral + error*dt;
+        	double derivative = (error - prev_error)/dt;
+        	prev_error = error;
+
+        	return Kp*error + Ki*integral + Kd*derivative;
+	}
+ };
+
+
+/************************************************************
+* Function Name: moveRobot
+* Moves the robot a set amount - currently open loop control
+* TODO - make closed loop eventually with odometry
+************************************************************/
+// Should it be const ros::Publisher& pub ??
+void moveRobot(double dist, string type, ros::Publisher& pub) {
+	ROS_INFO("Auto move %f", dist);
+
+  ros::Rate loop_rate(FREQ);
+  geometry_msgs::Twist t;
+
+  double Vx = 0.0;
+  double Vz = 0.0;
+  int runTime = 0;
+
+  // determine direction and runtime
+  if (type.compare("forward")==0) {
+    if (dist > 0) {
+      Vx = 0.15;
+    } else {
+      Vx = -0.15;
+    }
+    runTime = (int) (dist/0.15*FREQ);
+  } else if (type.compare("rotate")==0) {
+    if (dist > 0) {
+      Vz = PI/6;
+    } else {
+      Vz = -PI/6;
+    }
+    runTime = (int) (dist*6/PI*FREQ);
+  }
+
+  int counter = 0;
+  //runtime loop
+  while(ros::ok()){
+    if(counter > runTime){
+      break;
+    }
+    t.linear.x = Vx;
+    t.linear.y = 0.0;
+    t.linear.z = 0.0;
+    t.angular.x = 0.0;
+    t.angular.y = 0.0;
+    t.angular.z = Vz;
+    // ros::spinOnce(); // should this be removed?? nec. for obstacle detection
+    loop_rate.sleep();
+    pub.publish(t);
+    counter++;
+  }
+}
+
+/************************************************************
+ * Function Name: blobsCallBack
+ * Parameters: const cmvision::Blobs
+ * Returns: void
+ *
+ * Description: This is the callback function of the /blobs topic
+ *
+ * TODO: change color values to those of the desired objects
+ ***********************************************************/
+
+
+/************************************************************
+ * Function Name: PointCloud_Callback
+ * Parameters: const PointCloud::ConstPtr
+ * Returns: void
+ *
+ * Description: This is the callback function of the PointCloud
+ * 				topic, function depends on state
+ *
+ * TODO: add in the rest of the states
+ ***********************************************************/
+
+
+/**********************************************************
+ * Function Name: main
+ * Parameters: int argc, char **argv
+ * Returns: int
+ *
+ * Description: This is the main function. It will subscribe
+ *				to the /blobs and /PointCloud topic and act
+ *        according to the state it is in.
+ *
+ * TODO: add in the rest of the states
+ ***********************************************************/
+int main(int argc, char **argv){
+	ros::init(argc, argv, "blobs_test");
+
+	// Create handle that will be used for both subscribing and publishing.
+	ros::NodeHandle n;
+
+  	// publishing the geometry message twist message
+  	ros::Publisher velocityPublisher = n.advertise<geometry_msgs::Twist>("cmd_vel_mux/input/teleop", 1000);
+
+  	ROS_INFO("Program started!");
+
+	// Set the loop frequency in Hz.
+  	ros::Rate loop_rate(FREQ);
+
+  	// translation vector
+	geometry_msgs::Twist t;
+
+	//runtime loop
+  while(ros::ok()){
+	  t.linear.x = 0.0;
+          t.linear.y = 0.0;
+          t.linear.z = 0.0;
+          t.angular.x = 0.0;
+          t.angular.y = 0.0;
+          t.angular.z = 0.0;
+
+
+    switch(state){
+      case 0 :
+      {
+        // STATE 0: Wait for user input
+        ROS_INFO("State 0...");
+        string inputString;
+        while(1){
+          cout << "Ready to go (y/n)?\n";
+          getline(cin, inputString);
+          if(inputString.compare("y") == 0){
+            break;
+          }
+        }
+
+        // transition to state 1
+        state = 1;
+        break;
+      }
+      case 1 :
+      {    // STATE 1: Move along wall till corner
+          ROS_INFO("State 1...");
+
+            // transition to state 2
+            moveRobot(1.0, "forward", velocityPublisher);
+            moveRobot(-PI/2, "rotate", velocityPublisher);
+		moveRobot(-0.5, "forward", velocityPublisher);
+moveRobot(PI/2, "rotate", velocityPublisher);
+            state = 2;
+
+          break;
+      }
+      case 2 :
+      {  // STATE 2: Move along wall till corner
+        ROS_INFO("State 2...");
+        break;
+      }
+      case 3 :
+      {
+        // STATE 3: Find the printer and approach it
+        ROS_INFO("State 3...");
+        break;
+      }
+      case 4 :
+          // STATE 4: look for object, then ask
+          break;
+      case 5 :
+          // STATE 5: Papers are loaded, find wall
+          break;
+      case 6 :
+          // STATE 6: Follow wall until corner
+          break;
+      case 7 :
+          // STATE 7: Follow wall until doorway
+        break;
+      default :
+        ROS_INFO("YO SOMEONE DIDNT CATCH ALL STATES");
+	break;
+    }
+	ROS_INFO("rotating this amount: %f", t.angular.z); 
+	velocityPublisher.publish(t);
+	ros::spinOnce();
+	loop_rate.sleep();
+  }
+  return 0;
+}

@@ -248,6 +248,20 @@ get_paper/fast:
 .PHONY : get_paper/fast
 
 # Convenience name for target.
+hw9/CMakeFiles/get_paper_test.dir/rule:
+	cd /home/turtlebot/jeff_michelle_ws/build && $(MAKE) -f CMakeFiles/Makefile2 hw9/CMakeFiles/get_paper_test.dir/rule
+.PHONY : hw9/CMakeFiles/get_paper_test.dir/rule
+
+# Convenience name for target.
+get_paper_test: hw9/CMakeFiles/get_paper_test.dir/rule
+.PHONY : get_paper_test
+
+# fast build rule for target.
+get_paper_test/fast:
+	cd /home/turtlebot/jeff_michelle_ws/build && $(MAKE) -f hw9/CMakeFiles/get_paper_test.dir/build.make hw9/CMakeFiles/get_paper_test.dir/build
+.PHONY : get_paper_test/fast
+
+# Convenience name for target.
 hw9/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/rule:
 	cd /home/turtlebot/jeff_michelle_ws/build && $(MAKE) -f CMakeFiles/Makefile2 hw9/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/rule
 .PHONY : hw9/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/rule
@@ -453,6 +467,30 @@ src/get_paper.cpp.s:
 	cd /home/turtlebot/jeff_michelle_ws/build && $(MAKE) -f hw9/CMakeFiles/get_paper.dir/build.make hw9/CMakeFiles/get_paper.dir/src/get_paper.cpp.s
 .PHONY : src/get_paper.cpp.s
 
+src/get_paper_test.o: src/get_paper_test.cpp.o
+.PHONY : src/get_paper_test.o
+
+# target to build an object file
+src/get_paper_test.cpp.o:
+	cd /home/turtlebot/jeff_michelle_ws/build && $(MAKE) -f hw9/CMakeFiles/get_paper_test.dir/build.make hw9/CMakeFiles/get_paper_test.dir/src/get_paper_test.cpp.o
+.PHONY : src/get_paper_test.cpp.o
+
+src/get_paper_test.i: src/get_paper_test.cpp.i
+.PHONY : src/get_paper_test.i
+
+# target to preprocess a source file
+src/get_paper_test.cpp.i:
+	cd /home/turtlebot/jeff_michelle_ws/build && $(MAKE) -f hw9/CMakeFiles/get_paper_test.dir/build.make hw9/CMakeFiles/get_paper_test.dir/src/get_paper_test.cpp.i
+.PHONY : src/get_paper_test.cpp.i
+
+src/get_paper_test.s: src/get_paper_test.cpp.s
+.PHONY : src/get_paper_test.s
+
+# target to generate assembly for a file
+src/get_paper_test.cpp.s:
+	cd /home/turtlebot/jeff_michelle_ws/build && $(MAKE) -f hw9/CMakeFiles/get_paper_test.dir/build.make hw9/CMakeFiles/get_paper_test.dir/src/get_paper_test.cpp.s
+.PHONY : src/get_paper_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -467,6 +505,7 @@ help:
 	@echo "... actionlib_msgs_generate_messages_py"
 	@echo "... edit_cache"
 	@echo "... get_paper"
+	@echo "... get_paper_test"
 	@echo "... install"
 	@echo "... install/local"
 	@echo "... install/strip"
@@ -489,6 +528,9 @@ help:
 	@echo "... src/get_paper.o"
 	@echo "... src/get_paper.i"
 	@echo "... src/get_paper.s"
+	@echo "... src/get_paper_test.o"
+	@echo "... src/get_paper_test.i"
+	@echo "... src/get_paper_test.s"
 .PHONY : help
 
 

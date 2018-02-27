@@ -1034,6 +1034,19 @@ get_paper/fast:
 .PHONY : get_paper/fast
 
 #=============================================================================
+# Target rules for targets named get_paper_test
+
+# Build rule for target.
+get_paper_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 get_paper_test
+.PHONY : get_paper_test
+
+# fast build rule for target.
+get_paper_test/fast:
+	$(MAKE) -f hw9/CMakeFiles/get_paper_test.dir/build.make hw9/CMakeFiles/get_paper_test.dir/build
+.PHONY : get_paper_test/fast
+
+#=============================================================================
 # Target rules for targets named pcl_msgs_generate_messages_cpp
 
 # Build rule for target.
@@ -1283,6 +1296,7 @@ help:
 	@echo "... actionlib_msgs_generate_messages_lisp"
 	@echo "... actionlib_msgs_generate_messages_py"
 	@echo "... get_paper"
+	@echo "... get_paper_test"
 	@echo "... pcl_msgs_generate_messages_cpp"
 	@echo "... pcl_msgs_generate_messages_lisp"
 	@echo "... pcl_msgs_generate_messages_py"

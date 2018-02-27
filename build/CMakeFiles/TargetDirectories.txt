@@ -47,6 +47,7 @@
 /home/turtlebot/jeff_michelle_ws/build/cmvision/CMakeFiles/geometry_msgs_generate_messages_lisp.dir
 /home/turtlebot/jeff_michelle_ws/build/cmvision/CMakeFiles/geometry_msgs_generate_messages_py.dir
 /home/turtlebot/jeff_michelle_ws/build/hw9/CMakeFiles/get_paper.dir
+/home/turtlebot/jeff_michelle_ws/build/hw9/CMakeFiles/get_paper_test.dir
 /home/turtlebot/jeff_michelle_ws/build/gtest/CMakeFiles/gtest.dir
 /home/turtlebot/jeff_michelle_ws/build/gtest/CMakeFiles/gtest_main.dir
 /home/turtlebot/jeff_michelle_ws/build/ros_astra_camera/CMakeFiles/nodelet_generate_messages_cpp.dir

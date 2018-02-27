@@ -230,7 +230,7 @@ gtest/preinstall:
 gtest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f gtest/CMakeFiles/gtest.dir/build.make gtest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f gtest/CMakeFiles/gtest.dir/build.make gtest/CMakeFiles/gtest.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/turtlebot/jeff_michelle_ws/build/CMakeFiles  43
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/turtlebot/jeff_michelle_ws/build/CMakeFiles  44
 	@echo "Built target gtest"
 .PHONY : gtest/CMakeFiles/gtest.dir/all
 
@@ -261,7 +261,7 @@ clean: gtest/CMakeFiles/gtest.dir/clean
 gtest/CMakeFiles/gtest_main.dir/all: gtest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/turtlebot/jeff_michelle_ws/build/CMakeFiles  44
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/turtlebot/jeff_michelle_ws/build/CMakeFiles  45
 	@echo "Built target gtest_main"
 .PHONY : gtest/CMakeFiles/gtest_main.dir/all
 
@@ -506,8 +506,8 @@ clean: cmvision/CMakeFiles/cmvision_gencpp.dir/clean
 
 # All Build rule for target.
 cmvision/CMakeFiles/cmvision_generate_messages.dir/all: cmvision/CMakeFiles/cmvision_generate_messages_py.dir/all
-cmvision/CMakeFiles/cmvision_generate_messages.dir/all: cmvision/CMakeFiles/cmvision_generate_messages_cpp.dir/all
 cmvision/CMakeFiles/cmvision_generate_messages.dir/all: cmvision/CMakeFiles/cmvision_generate_messages_lisp.dir/all
+cmvision/CMakeFiles/cmvision_generate_messages.dir/all: cmvision/CMakeFiles/cmvision_generate_messages_cpp.dir/all
 	$(MAKE) -f cmvision/CMakeFiles/cmvision_generate_messages.dir/build.make cmvision/CMakeFiles/cmvision_generate_messages.dir/depend
 	$(MAKE) -f cmvision/CMakeFiles/cmvision_generate_messages.dir/build.make cmvision/CMakeFiles/cmvision_generate_messages.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/turtlebot/jeff_michelle_ws/build/CMakeFiles 
@@ -609,8 +609,8 @@ clean: cmvision/CMakeFiles/cmvision_generate_messages_lisp.dir/clean
 
 # All Build rule for target.
 cmvision/CMakeFiles/cmvision_generate_messages_py.dir/all: cmvision/CMakeFiles/_cmvision_generate_messages_check_deps_Blob.dir/all
-cmvision/CMakeFiles/cmvision_generate_messages_py.dir/all: cmvision/CMakeFiles/std_msgs_generate_messages_py.dir/all
 cmvision/CMakeFiles/cmvision_generate_messages_py.dir/all: cmvision/CMakeFiles/_cmvision_generate_messages_check_deps_Blobs.dir/all
+cmvision/CMakeFiles/cmvision_generate_messages_py.dir/all: cmvision/CMakeFiles/std_msgs_generate_messages_py.dir/all
 	$(MAKE) -f cmvision/CMakeFiles/cmvision_generate_messages_py.dir/build.make cmvision/CMakeFiles/cmvision_generate_messages_py.dir/depend
 	$(MAKE) -f cmvision/CMakeFiles/cmvision_generate_messages_py.dir/build.make cmvision/CMakeFiles/cmvision_generate_messages_py.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/turtlebot/jeff_michelle_ws/build/CMakeFiles  36 37 38
@@ -1350,9 +1350,9 @@ clean: ros_astra_camera/CMakeFiles/astra_camera_gencpp.dir/clean
 # Target rules for target ros_astra_camera/CMakeFiles/astra_camera_generate_messages.dir
 
 # All Build rule for target.
+ros_astra_camera/CMakeFiles/astra_camera_generate_messages.dir/all: ros_astra_camera/CMakeFiles/astra_camera_generate_messages_lisp.dir/all
 ros_astra_camera/CMakeFiles/astra_camera_generate_messages.dir/all: ros_astra_camera/CMakeFiles/astra_camera_generate_messages_py.dir/all
 ros_astra_camera/CMakeFiles/astra_camera_generate_messages.dir/all: ros_astra_camera/CMakeFiles/astra_camera_generate_messages_cpp.dir/all
-ros_astra_camera/CMakeFiles/astra_camera_generate_messages.dir/all: ros_astra_camera/CMakeFiles/astra_camera_generate_messages_lisp.dir/all
 	$(MAKE) -f ros_astra_camera/CMakeFiles/astra_camera_generate_messages.dir/build.make ros_astra_camera/CMakeFiles/astra_camera_generate_messages.dir/depend
 	$(MAKE) -f ros_astra_camera/CMakeFiles/astra_camera_generate_messages.dir/build.make ros_astra_camera/CMakeFiles/astra_camera_generate_messages.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/turtlebot/jeff_michelle_ws/build/CMakeFiles 
@@ -1542,10 +1542,10 @@ clean: ros_astra_camera/CMakeFiles/astra_camera_genpy.dir/clean
 # Target rules for target ros_astra_camera/CMakeFiles/astra_camera_node.dir
 
 # All Build rule for target.
-ros_astra_camera/CMakeFiles/astra_camera_node.dir/all: ros_astra_camera/CMakeFiles/astra_camera_generate_messages_cpp.dir/all
 ros_astra_camera/CMakeFiles/astra_camera_node.dir/all: ros_astra_camera/CMakeFiles/astra_openni2.dir/all
-ros_astra_camera/CMakeFiles/astra_camera_node.dir/all: ros_astra_camera/CMakeFiles/astra_camera_gencfg.dir/all
+ros_astra_camera/CMakeFiles/astra_camera_node.dir/all: ros_astra_camera/CMakeFiles/astra_camera_generate_messages_cpp.dir/all
 ros_astra_camera/CMakeFiles/astra_camera_node.dir/all: ros_astra_camera/CMakeFiles/astra_driver_lib.dir/all
+ros_astra_camera/CMakeFiles/astra_camera_node.dir/all: ros_astra_camera/CMakeFiles/astra_camera_gencfg.dir/all
 ros_astra_camera/CMakeFiles/astra_camera_node.dir/all: ros_astra_camera/CMakeFiles/astra_wrapper.dir/all
 	$(MAKE) -f ros_astra_camera/CMakeFiles/astra_camera_node.dir/build.make ros_astra_camera/CMakeFiles/astra_camera_node.dir/depend
 	$(MAKE) -f ros_astra_camera/CMakeFiles/astra_camera_node.dir/build.make ros_astra_camera/CMakeFiles/astra_camera_node.dir/build
@@ -1582,8 +1582,8 @@ clean: ros_astra_camera/CMakeFiles/astra_camera_node.dir/clean
 
 # All Build rule for target.
 ros_astra_camera/CMakeFiles/astra_camera_nodelet.dir/all: ros_astra_camera/CMakeFiles/astra_openni2.dir/all
-ros_astra_camera/CMakeFiles/astra_camera_nodelet.dir/all: ros_astra_camera/CMakeFiles/astra_camera_gencfg.dir/all
 ros_astra_camera/CMakeFiles/astra_camera_nodelet.dir/all: ros_astra_camera/CMakeFiles/astra_driver_lib.dir/all
+ros_astra_camera/CMakeFiles/astra_camera_nodelet.dir/all: ros_astra_camera/CMakeFiles/astra_camera_gencfg.dir/all
 ros_astra_camera/CMakeFiles/astra_camera_nodelet.dir/all: ros_astra_camera/CMakeFiles/astra_wrapper.dir/all
 	$(MAKE) -f ros_astra_camera/CMakeFiles/astra_camera_nodelet.dir/build.make ros_astra_camera/CMakeFiles/astra_camera_nodelet.dir/depend
 	$(MAKE) -f ros_astra_camera/CMakeFiles/astra_camera_nodelet.dir/build.make ros_astra_camera/CMakeFiles/astra_camera_nodelet.dir/build
@@ -1619,8 +1619,8 @@ clean: ros_astra_camera/CMakeFiles/astra_camera_nodelet.dir/clean
 # Target rules for target ros_astra_camera/CMakeFiles/astra_driver_lib.dir
 
 # All Build rule for target.
-ros_astra_camera/CMakeFiles/astra_driver_lib.dir/all: ros_astra_camera/CMakeFiles/astra_camera_generate_messages_cpp.dir/all
 ros_astra_camera/CMakeFiles/astra_driver_lib.dir/all: ros_astra_camera/CMakeFiles/astra_openni2.dir/all
+ros_astra_camera/CMakeFiles/astra_driver_lib.dir/all: ros_astra_camera/CMakeFiles/astra_camera_generate_messages_cpp.dir/all
 ros_astra_camera/CMakeFiles/astra_driver_lib.dir/all: ros_astra_camera/CMakeFiles/astra_camera_gencfg.dir/all
 ros_astra_camera/CMakeFiles/astra_driver_lib.dir/all: ros_astra_camera/CMakeFiles/astra_wrapper.dir/all
 	$(MAKE) -f ros_astra_camera/CMakeFiles/astra_driver_lib.dir/build.make ros_astra_camera/CMakeFiles/astra_driver_lib.dir/depend
@@ -1797,8 +1797,8 @@ clean: ros_astra_camera/CMakeFiles/astra_usb_reset.dir/clean
 # Target rules for target ros_astra_camera/CMakeFiles/astra_wrapper.dir
 
 # All Build rule for target.
-ros_astra_camera/CMakeFiles/astra_wrapper.dir/all: ros_astra_camera/CMakeFiles/astra_camera_generate_messages_cpp.dir/all
 ros_astra_camera/CMakeFiles/astra_wrapper.dir/all: ros_astra_camera/CMakeFiles/astra_openni2.dir/all
+ros_astra_camera/CMakeFiles/astra_wrapper.dir/all: ros_astra_camera/CMakeFiles/astra_camera_generate_messages_cpp.dir/all
 	$(MAKE) -f ros_astra_camera/CMakeFiles/astra_wrapper.dir/build.make ros_astra_camera/CMakeFiles/astra_wrapper.dir/depend
 	$(MAKE) -f ros_astra_camera/CMakeFiles/astra_wrapper.dir/build.make ros_astra_camera/CMakeFiles/astra_wrapper.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/turtlebot/jeff_michelle_ws/build/CMakeFiles  20 21 22 23 24 25 26 27
@@ -2144,6 +2144,7 @@ clean: ros_astra_camera/CMakeFiles/nodelet_generate_messages_py.dir/clean
 
 # Convenience name for "all" pass in the directory.
 hw9/all: hw9/CMakeFiles/get_paper.dir/all
+hw9/all: hw9/CMakeFiles/get_paper_test.dir/all
 .PHONY : hw9/all
 
 # Convenience name for "clean" pass in the directory.
@@ -2154,6 +2155,7 @@ hw9/clean: hw9/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/clean
 hw9/clean: hw9/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/clean
 hw9/clean: hw9/CMakeFiles/actionlib_msgs_generate_messages_py.dir/clean
 hw9/clean: hw9/CMakeFiles/get_paper.dir/clean
+hw9/clean: hw9/CMakeFiles/get_paper_test.dir/clean
 hw9/clean: hw9/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/clean
 hw9/clean: hw9/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/clean
 hw9/clean: hw9/CMakeFiles/pcl_msgs_generate_messages_py.dir/clean
@@ -2392,6 +2394,41 @@ hw9/CMakeFiles/get_paper.dir/clean:
 
 # clean rule for target.
 clean: hw9/CMakeFiles/get_paper.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target hw9/CMakeFiles/get_paper_test.dir
+
+# All Build rule for target.
+hw9/CMakeFiles/get_paper_test.dir/all:
+	$(MAKE) -f hw9/CMakeFiles/get_paper_test.dir/build.make hw9/CMakeFiles/get_paper_test.dir/depend
+	$(MAKE) -f hw9/CMakeFiles/get_paper_test.dir/build.make hw9/CMakeFiles/get_paper_test.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/turtlebot/jeff_michelle_ws/build/CMakeFiles  43
+	@echo "Built target get_paper_test"
+.PHONY : hw9/CMakeFiles/get_paper_test.dir/all
+
+# Include target in all.
+all: hw9/CMakeFiles/get_paper_test.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+hw9/CMakeFiles/get_paper_test.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/turtlebot/jeff_michelle_ws/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 hw9/CMakeFiles/get_paper_test.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/turtlebot/jeff_michelle_ws/build/CMakeFiles 0
+.PHONY : hw9/CMakeFiles/get_paper_test.dir/rule
+
+# Convenience name for target.
+get_paper_test: hw9/CMakeFiles/get_paper_test.dir/rule
+.PHONY : get_paper_test
+
+# clean rule for target.
+hw9/CMakeFiles/get_paper_test.dir/clean:
+	$(MAKE) -f hw9/CMakeFiles/get_paper_test.dir/build.make hw9/CMakeFiles/get_paper_test.dir/clean
+.PHONY : hw9/CMakeFiles/get_paper_test.dir/clean
+
+# clean rule for target.
+clean: hw9/CMakeFiles/get_paper_test.dir/clean
 .PHONY : clean
 
 #=============================================================================
